@@ -30,10 +30,6 @@ public class Passport {
         return idPassport;
     }
 
-    public void setIdPassport(Long idPassport) {
-        this.idPassport = idPassport;
-    }
-
     @Override
     public String toString() {
         return String.format("Passport[%s]", number);
