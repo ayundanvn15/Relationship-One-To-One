@@ -1,9 +1,6 @@
 package com.exercise.relationshipsoneone.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Passport {
@@ -15,7 +12,13 @@ public class Passport {
     @Column(nullable = false)
     private String number;
 
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "passport")
+    private Student student;
+
     protected Passport() {
+    }
+
+    public Passport(String number) {
     }
 
     public String getNumber() {
@@ -24,6 +27,14 @@ public class Passport {
 
     public void setNumber(String number) {
         this.number = number;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     public Long getIdPassport() {
